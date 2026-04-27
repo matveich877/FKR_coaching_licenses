@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>База тренеров — Реестр лицензий</title>
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=zLB4LTsc-MFE5UYlxvNTKfroxLCHnkKvj-Gzg19zB8aQ8Kg8XCdLcTixK1OIqjHO8FBIPLvPlcI9VXiuq8XNXO8pos6dpV41QC2QKHSZ5f_Yc_bQOxLIerIUeYg59sC_vZfdsgFA_DcpqlYfJaS1OW74qJdGXeLBVEkZ3sRABS1RK2T11l07coWVfzTNgd-K_epyh9BBOzrJPzBsUWl3bxFFCCgi-zUiBVV1cbQoWCGZkh6s9EOkUksgVcF2yGFZ0bq1tp55JZ7aVDFpzxZAsa-Fz9zC7by2Zcg-Uvx-lEEbQ851Ts1mx6SWQDyOG-GiWw--Tzqh5w3TofVMTYrrHMO0BHmAd6B6aJvdSK4X54DZoZsDciPzhJyopcAhp0kxEbzbIwGbnX5sRdofDcgEjv2igEhZpf2u_tyHeJ8OkjepD_9NbiDPpgVcLjPxIMyH2M3XxHiRlw_VpKJfpgNXomp1r_0ZydxMeFQDcxnlDJcvkLsvPbF2_CUc2WxaplOhq4UDrH6W-43LydNE_UqBeLv_yYLSiEWf674Ecs3PZXI3usWJkBecY3q1PXy6XBCLGGlI9GtHwOQThOPEoSKE3w7Pr5FV06HfoA7v_tAOhMGcYoWtbFJ1-sQQtzeWSa6LiNRCu-VD7CX-7T43MlbkaQ" charset="UTF-8"></script><style>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Iz5MW0EdSf_PdamAbFOP8HrCLofI4cM_seUPB1TnP6euyqGsMjDyY5PZuh3iHJH7gCXdPbGAC52E5tpXSRYAthVmyI6Ll508n4pBERg-PLtrDci6zt-uIQJ-7gHpJrv9ZbAu5fDuyWYyNABKnxGXdokmCQUa9QVr0bKrfuN5ziZyZCt5WvQJ4XJsJewZpJ-LfWOorgzieV_sb8w5L_Nn-cR6edJuDAHi_JWPPWHubvIENWg2iMgsAJzuqLmBe8w6tSJAgyzNxjXBV-m-tKxY974hRiKnE7-GwfSTaWqJUY_fmSe7UWoAnv1l_Eh0-xwtOM26pIZLhwW4PPpzf3jQCl-JZZ75RAiJJbDiONAmqnUfwyebgRquShyxWiqynVbxZ_FutiY08uG6jB74M4wCbOovf-6nuqWnMX51z4Yi_WsSqgV8bnSMB3PRcDQ-1dfuPNrw2-F5Hzk-3pu9fwye8lm3w_uZDCdp82rlU3CsvxvVrfKUxeWqC1YqOcycLSU2OL5gd0YGMc3ZzSyvyJZmozDU7Z-DefMZgOED9epbur-BQP9kpri8RKlWTKmEjTvcGHjwGkCzegmXVIdVhHgf06XvBI3gaPQ0ukRnWerCCVJU7v8tqR-ArGFAAsW_5QbwjW92Tw9as9_6_HF5lg7Qww" charset="UTF-8"></script><style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --bg: #f5f7fa; --card: #ffffff; --text: #1a1a2e; --text-secondary: #6b7280;
@@ -329,7 +329,18 @@ function daysLeft(endDate) {
     return Math.round(diff / (1000 * 60 * 60 * 24));
 }
 
+function detectDelimiter(text) {
+    const firstLine = text.split('\n')[0];
+    const commaCount = (firstLine.match(/,/g) || []).length;
+    const semicolonCount = (firstLine.match(/;/g) || []).length;
+    const tabCount = (firstLine.match(/\t/g) || []).length;
+    if (semicolonCount > commaCount && semicolonCount > tabCount) return ';';
+    if (tabCount > commaCount && tabCount > semicolonCount) return '\t';
+    return ',';
+}
+
 function parseCSV(text) {
+    const delimiter = detectDelimiter(text);
     const lines = text.trim().split('\n');
     const result = [];
     for (let i = 1; i < lines.length; i++) {
@@ -342,7 +353,7 @@ function parseCSV(text) {
             const char = line[j];
             if (char === '"') {
                 inQuotes = !inQuotes;
-            } else if (char === ',' && !inQuotes) {
+            } else if (char === delimiter && !inQuotes) {
                 cells.push(cell.trim());
                 cell = '';
             } else {
