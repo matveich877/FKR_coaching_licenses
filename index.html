@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>База тренеров — Реестр лицензий</title>
-    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Iz5MW0EdSf_PdamAbFOP8HrCLofI4cM_seUPB1TnP6euyqGsMjDyY5PZuh3iHJH7gCXdPbGAC52E5tpXSRYAthVmyI6Ll508n4pBERg-PLtrDci6zt-uIQJ-7gHpJrv9ZbAu5fDuyWYyNABKnxGXdokmCQUa9QVr0bKrfuN5ziZyZCt5WvQJ4XJsJewZpJ-LfWOorgzieV_sb8w5L_Nn-cR6edJuDAHi_JWPPWHubvIENWg2iMgsAJzuqLmBe8w6tSJAgyzNxjXBV-m-tKxY974hRiKnE7-GwfSTaWqJUY_fmSe7UWoAnv1l_Eh0-xwtOM26pIZLhwW4PPpzf3jQCl-JZZ75RAiJJbDiONAmqnUfwyebgRquShyxWiqynVbxZ_FutiY08uG6jB74M4wCbOovf-6nuqWnMX51z4Yi_WsSqgV8bnSMB3PRcDQ-1dfuPNrw2-F5Hzk-3pu9fwye8lm3w_uZDCdp82rlU3CsvxvVrfKUxeWqC1YqOcycLSU2OL5gd0YGMc3ZzSyvyJZmozDU7Z-DefMZgOED9epbur-BQP9kpri8RKlWTKmEjTvcGHjwGkCzegmXVIdVhHgf06XvBI3gaPQ0ukRnWerCCVJU7v8tqR-ArGFAAsW_5QbwjW92Tw9as9_6_HF5lg7Qww" charset="UTF-8"></script><style>
+    <title>Реестр лицензий тренеров, нарушений и сроков дисквалификаций</title>
+    <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=R8e-TIgLaxQCQERo35yiR3qZnhKn8B7NCUt5p_HSnY5lvhdQL87Oiv3bUSS5pkyUUPD3QFcRjZlTjAOH0947ZnJqNHu69yqS67upwO63HZHhV-8ewlHk2HQC2cgUJzF5W1dy9OpIKo7iyg1xHyepvFc6QzIZ7GgYbTtSCeDw3ngE11vbFIfuS2Ij-URNxbrvckMeOpxiyJZDTpZtnxe6wIrv2v0CZ-hEkQBRl4lxGFPFlA7RH_8a47du8Z25nt-eY-bu6yskA-T3TqcrytBMJuOSIihcMp0ML7BG-PTt7lJCUx3PSFFdsZjSgY-qwpT5bmg9yP1x0LULFu7q8TLA1F3wPr8VB97MNdJQsZi2gQKODznfZs0EyNCiO3F9c6snqGfFdOVDYZ5HGVQcYNfAxUF3VWaXTTobR5-hHAtxRTOOB2-DYG0o824OMn_bCIxjHd5CEdzRlu-OUqE44aDKS9fsRX3P2dGI8WFhSPKRdOjZGEWFrb_4FB7ESkTvtYAbhW-PMG8MEQeWeqo770T9UzbLByKdammp6J-cdG2wdcEX8jmHw6R7-yj8SBuU5RkYBh9vjHS4Yl5584YsomVt6Yuv6YhhfGSrvKm3s4MjmoyOmTHOkWCvUxt4YK4qnKtkW6TtG2iloh6FhpDHwH9wBQ" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Iz5MW0EdSf_PdamAbFOP8HrCLofI4cM_seUPB1TnP6euyqGsMjDyY5PZuh3iHJH7gCXdPbGAC52E5tpXSRYAthVmyI6Ll508n4pBERg-PLtrDci6zt-uIQJ-7gHpJrv9ZbAu5fDuyWYyNABKnxGXdokmCQUa9QVr0bKrfuN5ziZyZCt5WvQJ4XJsJewZpJ-LfWOorgzieV_sb8w5L_Nn-cR6edJuDAHi_JWPPWHubvIENWg2iMgsAJzuqLmBe8w6tSJAgyzNxjXBV-m-tKxY974hRiKnE7-GwfSTaWqJUY_fmSe7UWoAnv1l_Eh0-xwtOM26pIZLhwW4PPpzf3jQCl-JZZ75RAiJJbDiONAmqnUfwyebgRquShyxWiqynVbxZ_FutiY08uG6jB74M4wCbOovf-6nuqWnMX51z4Yi_WsSqgV8bnSMB3PRcDQ-1dfuPNrw2-F5Hzk-3pu9fwye8lm3w_uZDCdp82rlU3CsvxvVrfKUxeWqC1YqOcycLSU2OL5gd0YGMc3ZzSyvyJZmozDU7Z-DefMZgOED9epbur-BQP9kpri8RKlWTKmEjTvcGHjwGkCzegmXVIdVhHgf06XvBI3gaPQ0ukRnWerCCVJU7v8tqR-ArGFAAsW_5QbwjW92Tw9as9_6_HF5lg7Qww" charset="UTF-8"></script><style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --bg: #f5f7fa; --card: #ffffff; --text: #1a1a2e; --text-secondary: #6b7280;
@@ -199,8 +199,8 @@
 <body>
     <div class="header">
         <div class="header-inner">
-            <h1>🏆 База тренеров</h1>
-            <p>Реестр лицензий, нарушений и сроков дисквалификации</p>
+            <h1>🏆 Реестр лицензий тренеров</h1>
+            <p>Лицензии, нарушения и сроки дисквалификаций</p>
             <div class="date" id="currentDate"></div>
         </div>
     </div>
@@ -218,6 +218,14 @@
                 💡 Можно вставить прямую ссылку на CSV из Яндекс.Таблиц / Google Sheets / облака.<br>
                 💡 Или выбрать CSV-файл с компьютера (например, экспортированный из Яндекс.Таблиц).
             </div>
+        </div>
+
+        <div class="data-source" style="background: #eff6ff; border-left: 4px solid #3b82f6;">
+            <p style="font-size: 0.9rem; color: #1e3a8a; line-height: 1.5;">
+                <b>📌 Источник данных:</b> информация получена из открытого реестра лицензий WKF — 
+                <a href="https://judge-wkf.ru/" target="_blank" style="color: #2563eb; text-decoration: underline;">judge-wkf.ru</a>.
+                Все данные размещены в открытом доступе федерацией каратэ и предназначены для информационных целей.
+            </p>
         </div>
 
         <div class="loading" id="loading">
